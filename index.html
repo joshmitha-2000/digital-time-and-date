@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .index{
+            border: 1px solid black;
+            width: 600px;
+            height:600px;
+            padding: 40px 43px;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .index1{
+            border: 2px solid white;
+            width: 500px;
+            height:500px;
+            padding: 5%;
+            background-color: black;
+
+        }
+        .header1{
+            display: flex;
+            justify-content: space-around;
+            flex:0 0 50;
+            color: white;
+            background-color: black;
+        }
+        .dates{
+            display: flex;
+            height: auto;
+            width: 100%;
+            border: 1px solid white;
+            justify-content: space-around;
+            /* flex:0 0 50; */
+            font-size: 1rem;
+            color: rgb(255, 51, 0);
+            /* border-radius: 50px;
+            box-sizing: border-box; */
+            
+        }
+        .header2{
+            display: flex;
+            justify-content: space-around;
+            flex:0 0 50;
+            color: white;
+            background-color: black;
+        }
+        .time{
+            display: flex;
+            height: 6%;
+            width: 100%;
+            border: 1px solid white;
+            justify-content: space-around;
+            flex:0 0 50;
+            font-size: 1rem;
+            color: rgb(255, 13, 0);
+            /* border-radius: 50px;
+            box-sizing: border-box; */
+        }
+        .weekdays{
+            display: flex;
+            color: white;
+            justify-content: space-around;
+            margin-top: 10%;
+        }
+        .weekdays span.highlight {
+            color: red;
+            font-weight: bold;
+        }
+        input[type="radio"]:checked + label {
+    background-color:red; /* Red color for the current day */
+  }
+  #dates{
+    color: red;
+    align-self: center;
+    margin-left: 40%;
+    margin-top: 10%;
+  }
+    
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="index">
+            <div class="index1">
+                <div class="digital">
+                    <header class="header1">
+                        <h4>Date</h4>
+                        <h4>Month</h4>
+                        <h4>Year</h4>
+                    </header>
+                    <div class="dates">
+                        <h4 id="date">date</h4>
+                        <h4></h4>
+                        <h4 id="mon">month</h4>
+                        <h4></h4>
+                        <h4 id="year">year</h4>
+                    </div>
+                    <header class="header2">
+                        <h4>Hour</h4>
+                        <h4>Minute</h4>
+                        <h4>Second</h4>
+                    </header>
+                    <div class="time">
+                        <h4 id="hr">date</h4>
+                        <h4>:</h4>
+                        <h4 id="mi">month</h4>
+                        <h4>:</h4>
+                        <h4 id="sec">year</h4>
+                    </div>
+                    <div class="weekdays">
+                        <input type="radio" id="sun" name="day" value="Sunday">
+                        <label for="sunday">Sun</label>
+                        <input type="radio" id="mon" name="day" value="Monday">
+                        <label for="monday">Mon</label>
+                        <input type="radio" id="tue" name="day" value="Tuesday">
+                        <label for="tuesday">Tue</label>
+                        <input type="radio" id="wed" name="day" value="Wednesday">
+                        <label for="wednesday">Wed</label>
+                        <input type="radio" id="thu" name="day" value="Thursday">
+                        <label for="thursday">Thu</label>
+                        <input type="radio" id="fri" name="day" value="Friday">
+                        <label for="friday">Fri</label>
+                        <input type="radio" id="sat" name="day" value="Saturday">
+                        <label for="saturday">Sat</label>
+                        
+                      </div>
+                      <p id="dates">hello</p>
+                      
+
+                    
+                </div>
+            </div>
+        
+        </div>
+    </main>
+    <script>
+        const months = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"
+    ]
+
+    const today=new Date();
+    const currentdate=document.getElementById("date").textContent=today.getDate()
+    const currentmon=document.getElementById('mon').textContent=today.getMonth()
+    const currentyear=document.getElementById('year').textContent=today.getFullYear()
+
+    setInterval(() => {
+    const today = new Date();
+    document.getElementById("hr").textContent = (today.getHours() < 10 ? '0' : '') + today.getHours();
+    document.getElementById("mi").textContent = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+    document.getElementById("sec").textContent = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
+}, 1000);
+
+
+
+
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const today1 = new Date().getDay();
+  const currentDay = days[today1];
+  
+  const radioBtn = document.getElementById(currentDay.toLowerCase());
+  if (radioBtn) {
+    radioBtn.checked = true;
+  }
+
+  const total=document.getElementById("dates").textContent=today.toDateString();
+
+
+    </script>
+</body>
+</html>
